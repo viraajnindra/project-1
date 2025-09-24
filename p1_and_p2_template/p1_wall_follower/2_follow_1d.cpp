@@ -18,7 +18,6 @@
 #include <mbot_lib/controllers.h>
 #include <mbot_lib/utils.h>
 
-
 bool ctrl_c_pressed;
 void ctrlc(int)
 {
@@ -38,8 +37,10 @@ int main(int argc, const char *argv[])
     std::vector<float> thetas;
 
     // *** Task 1: Adjust these values appropriately ***
-
-    float setpoint = 1.0;  // The goal distance from the wall in meters
+    
+    float setpoint = 0.4;
+    float scaling = 0.5;
+    float tolerance = 0.05;
 
     // *** End student code *** //
 
@@ -52,7 +53,8 @@ int main(int argc, const char *argv[])
         if (dist_to_wall < 0) continue;
 
         // *** Task 2: Implement the Follow Me controller *** //
-
+        float vx = bangBangControl(dist_to_wall, setpoint, scaling, tolerance);
+        robot.drive (-vx, 0, 0);
         // *** End Student Code *** //
 
         if (ctrl_c_pressed)

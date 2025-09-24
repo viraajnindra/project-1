@@ -40,7 +40,8 @@ int main(int argc, const char *argv[])
     // *** Task 1: Adjust these values appropriately ***
 
     float setpoint = 1;  // The goal distance from the wall in meters
-
+    float scaling = 0.5;
+    float tolerance = 0.25;
     // *** End student code *** //
 
     while (true) {
@@ -56,6 +57,11 @@ int main(int argc, const char *argv[])
         // Hint: Look at your code from follow_1D
         // Hint: When you compute the velocity command, you might find the functions
         // rayConversionVector helpful!
+
+        std::cout << "hi there\n";
+
+        //float vx = bangBangControl(dist_to_wall, setpoint, scaling, tolerance);
+        //robot.drive (-vx * cos(angle_to_wall), -vx * sin(angle_to_wall), 0);
 
         // *** End Student Code ***
 

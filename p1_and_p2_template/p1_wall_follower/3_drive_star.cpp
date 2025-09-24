@@ -30,6 +30,26 @@ int main(int argc, const char *argv[])
     mbot_bridge::MBot robot;
 
     // *** Task: Drive in a five pointed star *** //
+    
+    std::vector<float> xy = rayConversionCartisean(1, 1.25664);
+    robot.drive(0.5*xy[0], 0.5*xy[1], 0);
+    sleepFor(2);
+
+    xy = rayConversionCartisean(1, -1.25664);
+    robot.drive(0.5*xy[0], 0.5*xy[1], 0);
+    sleepFor(2);
+
+    xy = rayConversionCartisean(1, 2.51327);
+    robot.drive(0.5*xy[0], 0.5*xy[1], 0);
+    sleepFor(2);
+
+    xy = rayConversionCartisean(1, 0);
+    robot.drive(0.5*xy[0], 0.5*xy[1], 0);
+    sleepFor(2);
+
+    xy = rayConversionCartisean(1, -2.51327);
+    robot.drive(0.5*xy[0], 0.5*xy[1], 0);
+    sleepFor(2);
 
     // *** End student code *** //
 
