@@ -35,7 +35,7 @@ int findMinDist(const std::vector<float>& ranges)
 {
     // *** Task: Implement this function according to the header file *** //
 
-    int min = 1000;
+    float min = HIGH;
     int index;
     for (int i = 0; i < ranges.size(); i++)
     {
@@ -54,7 +54,7 @@ int findMinDist(const std::vector<float>& ranges)
 int findMinNonzeroDist(const std::vector<float>& ranges)
 {
     // *** Task: Implement this function according to the header file *** //
-    int min = 1000;
+    float min = HIGH;
     int index;
     for (int i = 0; i < ranges.size(); i++)
     {
