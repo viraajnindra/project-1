@@ -76,7 +76,8 @@ std::vector<float> vectorAdd(const std::vector<float>& v1, const std::vector<flo
 {
     // *** Task: Implement this function according to the header file *** //
 
-    return std::vector<float>();
+    std::vector<float> result = {v1[0]+v2[0], v1[1]+v2[1], v1[2]+v2[2]};
+    return result;
 
     // *** End student code *** //
 }
@@ -85,7 +86,12 @@ std::vector<float> crossProduct(const std::vector<float>& v1, const std::vector<
 {
     // *** Task: Implement this function according to the header file *** //
 
-    return std::vector<float>();
+    std::vector<float> result;
+    result.push_back(v1[1] * v2[2] - v1[2] * v2[1]);
+    result.push_back(v1[2] * v2[0] - v1[0] * v2[2]);
+    result.push_back(v1[0] * v2[1] - v1[1] * v2[0]);
+
+    return result;
 
     // *** End student code *** //
 }
@@ -93,6 +99,8 @@ std::vector<float> crossProduct(const std::vector<float>& v1, const std::vector<
 void transformVector2D(std::vector<float>& xy, float theta) 
 {
     // *** Task: Implement this function according to the header file *** //
+
+    //xy = xy.push_back(theta);
 
     // *** End student code *** //
 }

@@ -37,6 +37,10 @@ int main(int argc, const char *argv[])
     while (true) {
 
         // *** Task: Implement wall following *** //
+        
+        robot.readLidarScan(ranges, thetas);
+        std::vector<float> vectorParallel = computeWallFollowerCommand(ranges, thetas);
+        robot.drive(vectorParallel[0]/3, vectorParallel[1]/3, 0);
 
         // *** End student code *** //
 
