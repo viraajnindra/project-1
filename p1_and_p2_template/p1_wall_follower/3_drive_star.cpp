@@ -31,23 +31,23 @@ int main(int argc, const char *argv[])
 
     // *** Task: Drive in a five pointed star *** //
     
-    std::vector<float> xy = rayConversionCartesian(1, 1.25664);
+    std::vector<float> xy = rayConversionCartisean(1, 1.25664);
     robot.drive(0.5*xy[0], 0.5*xy[1], 0);
     sleepFor(2);
 
-    xy = rayConversionCartesian(1, -1.25664);
+    xy = rayConversionCartisean(1, -1.25664);
     robot.drive(0.5*xy[0], 0.5*xy[1], 0);
     sleepFor(2);
 
-    xy = rayConversionCartesian(1, 2.51327);
+    xy = rayConversionCartisean(1, 2.51327);
     robot.drive(0.5*xy[0], 0.5*xy[1], 0);
     sleepFor(2);
 
-    xy = rayConversionCartesian(1, 0);
+    xy = rayConversionCartisean(1, 0);
     robot.drive(0.5*xy[0], 0.5*xy[1], 0);
     sleepFor(2);
 
-    xy = rayConversionCartesian(1, -2.51327);
+    xy = rayConversionCartisean(1, -2.51327);
     robot.drive(0.5*xy[0], 0.5*xy[1], 0);
     sleepFor(2);
 

@@ -5,7 +5,7 @@
  */
 
 #include <mbot_lib/behaviors.h>
-
+using namespace::std;
 
 std::vector<float> computeWallFollowerCommand(const std::vector<float>& ranges, const std::vector<float>& thetas)
 {
@@ -42,7 +42,13 @@ std::vector<float> computeDriveToPoseCommand(const std::vector<float>& goal, con
 {   
     // *** Task: Implement this function according to the header file *** //
 
-    return std::vector<float>();
+    float distanceBetween = sqrt(pow(goal[0]-pose[0],2) + pow(goal[1]-pose[1],2));
+    float angleTo = atan((goal[1]-pose[1]))/(goal[0]-pose[0]);
+    float vel = 0.5;
+    
+    vector<float> driver = {vel*cos(goal[2]), vel*sin(goal[2]), 0};
+
+    return driver;
 
     // *** End student code *** //
 }

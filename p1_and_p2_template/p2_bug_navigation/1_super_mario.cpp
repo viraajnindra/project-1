@@ -93,7 +93,50 @@ int playGame(std::vector<char> &events, bool display) {
         char currentEvent = events[idx];
 
         // *** Task: Implement the Super Mario state machine *** //
-
+        switch(marioState)
+        {
+            case 0:
+                switch(currentEvent)
+                {
+                    case '_':
+                        break;
+                    case '-':
+                        marioState = -1;
+                        break;
+                    case '+':
+                        marioState = 1;
+                        break;
+                }
+                break;
+            case 1:
+                points++;
+                switch(currentEvent)
+                {
+                    case '_':
+                        break;
+                    case '-':
+                        marioState = 0;
+                        break;
+                    case '+':
+                        marioState = 2;
+                        break;
+                }
+                break;
+            case 2:
+                points+=3;
+                switch(currentEvent)
+                {
+                    case '_':
+                        break;
+                    case '-':
+                        marioState = 1;
+                        break;
+                    case '+':
+                        marioState = 2;
+                        break;
+                }
+                break;
+        }
         // *** End student code *** //
 
         idx++;

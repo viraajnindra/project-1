@@ -18,7 +18,7 @@
  * @param  ranges Vector of ray ranges.
  * @param  thetas Vector of ray angles.
  * @return  The drive command as a (vx, vy, wtheta) vector. 
- *
+ * 
  * NOTE: This function is not unit tested, it is simply meant to help you structure your code.
  */
 std::vector<float> computeWallFollowerCommand(const std::vector<float>& ranges, const std::vector<float>& thetas);

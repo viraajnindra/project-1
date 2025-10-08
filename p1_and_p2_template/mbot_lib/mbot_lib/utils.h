@@ -140,7 +140,7 @@ int findMinDist(const std::vector<float>& ranges);
  * @return  The index (location) of the smallest value in ranges.
  */
 int findMinNonzeroDist(const std::vector<float>& ranges);
-
+ 
 /**
  * Adds two vectors.
  * @param  v1 First vector.

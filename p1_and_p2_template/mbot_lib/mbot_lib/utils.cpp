@@ -7,7 +7,7 @@
 #include <mbot_lib/utils.h>
 
 
-std::vector<float> rayConversionCartesian(float dist, float angle) 
+std::vector<float> rayConversionCartisean(float dist, float angle) 
 {
     // *** Task: Implement this function according to the header file *** //
 
@@ -99,8 +99,13 @@ std::vector<float> crossProduct(const std::vector<float>& v1, const std::vector<
 void transformVector2D(std::vector<float>& xy, float theta) 
 {
     // *** Task: Implement this function according to the header file *** //
+       
+    float x = xy[0];
+    float y = xy[1];
 
-    //xy = xy.push_back(theta);
+    xy[0] = x * cos(theta) + y * sin(theta);
+    xy[1] = -x * sin(theta) + y * cos(theta);
+    
 
     // *** End student code *** //
 }
