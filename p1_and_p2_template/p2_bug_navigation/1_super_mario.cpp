@@ -155,4 +155,4 @@ int playGame(std::vector<char> &events, bool display) {
     }
 
     return points;
-}
+} 
