@@ -6,5 +6,5 @@
 - [Wall Follower Demo](https://drive.google.com/file/d/1WdlEz1LfbeZZedp76RldHOmLNW9GjXyt/view?usp=drive_link)
 
 # Project 2 Wall Follower Checkpoint Videos
-- [Robot Hits the Spot Demo](paste-link-to-a-video-here)
-- [Bug Navigation Demo](paste-link-to-a-video-here)
+- [Robot Hits the Spot Demo](https://drive.google.com/file/d/1BaNW09hndKNj4c0xylImH9H9VAdGYjFq/view?usp=drive_link)
+- [Bug Navigation Demo](https://drive.google.com/file/d/1jQk7CBGJb-KNPptssLHMgWL48C1C3-rQ/view?usp=sharing)
