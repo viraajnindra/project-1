@@ -40,7 +40,24 @@ int main(){
         std::vector<float> odometry_pose = robot.readOdometry();
         vector<float> driveVec = computeDriveToPoseCommand(goal_pose, odometry_pose);
 
-        robot.drive(driveVec[0], driveVec[1], driveVec[2]);
+        float dx = goal_pose[0]-odometry_pose[0];
+        float dy = goal_pose[1]-odometry_pose[1];
+        if (sqrt(pow(dx, 2)+pow(dy, 2)) < 0.2)
+        {
+            driveVec[0]=0;
+            driveVec[1]=0;
+            if (abs(odometry_pose[2]-goal_pose[2]) < 0.2)
+            {
+                robot.stop();
+                break;
+            }
+        }
+        else
+        {
+            driveVec[2]=0;
+        }
+
+        robot.drive(driveVec[0], driveVec[1], driveVec[2]*2);
 
         // *** End student code *** //
 
@@ -55,7 +72,7 @@ int main(){
     // *** Task: Print out the robot's final odometry pose *** //
 
     std::vector<float> odometry_pose = robot.readOdometry();
-    std::cout<< "The pose of the robot is " << odometry_pose[0]<<","<<odometry_pose[1];
+    std::cout<< "The pose of the robot is (" << odometry_pose[0]<<","<<odometry_pose[1]<<")\n";
 
     // *** End student code *** //
 
