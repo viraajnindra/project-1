@@ -42,15 +42,32 @@ std::vector<float> computeDriveToPoseCommand(const std::vector<float>& goal, con
 {   
     // *** Task: Implement this function according to the header file *** //
 
-    float distanceBetween = sqrt(pow(goal[0]-pose[0],2) + pow(goal[1]-pose[1],2));
-    float angleTo = atan((goal[1]-pose[1]))/(goal[0]-pose[0]);
-    float vel = 0.5;
-    
-    vector<float> driver = {vel*cos(goal[2]), vel*sin(goal[2]), 0};
+    float dx = goal[0]-pose[0];
+    float dy = goal[1]-pose[1];
+    float dtheta = normalizeAngle(goal[2]-pose[2]);
+    float theta = pose[2];
 
-    return driver;
+    vector<float> v;
+    v.push_back(dx*2);
+    v.push_back(dy*2);
+    v.push_back(dtheta);
+    
+    transformVector2D(v, theta);
+
+    if (sqrt(pow(dx, 2)+pow(dy, 2)) < 0.1)
+    {
+        v[0]=0;
+        v[1]=0;
+    }
+    else
+    {
+        v[2]=0;
+    }
+
+    return v;
 
     // *** End student code *** //
+    
 }
 
 bool isGoalAngleObstructed(const std::vector<float>& goal, const std::vector<float>& pose,
@@ -58,6 +75,13 @@ bool isGoalAngleObstructed(const std::vector<float>& goal, const std::vector<flo
 {
     // *** Task: Implement this function according to the header file *** //
 
+    float target_angle = goal[2]-pose[2];
+    double slice_size = M_PI/2;
+
+    if (ranges[findMinNonzeroDistInSlice(ranges, thetas, target_angle, slice_size)] < 0.4 && target_angle-pose[2] < M_PI/6.0)
+    {
+        return true;
+    }
     return false;
 
     // *** End student code *** //

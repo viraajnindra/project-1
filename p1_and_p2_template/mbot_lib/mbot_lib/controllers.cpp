@@ -23,7 +23,7 @@ float bangBangControl(float current, float setpoint, float scaling, float tolera
 
     // *** End student code *** //
 }
-
+ 
 float pControl(float current, float setpoint, float kp)
 {
     // *** Task: Implement this function according to the header file *** //

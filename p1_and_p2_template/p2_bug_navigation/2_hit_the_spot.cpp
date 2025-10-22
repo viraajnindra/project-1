@@ -27,9 +27,9 @@ int main(){
     float theta;
     cout<<"Enter a x position: ";
     cin>>x;
-    cout<<"\nEnter a y position: ";
+    cout<<"Enter a y position: ";
     cin>>y;
-    cout<<"\nEnter an angle to rotate: ";
+    cout<<"Enter an angle to rotate: ";
     cin>>theta;
     vector<float> goal_pose = {x, y, theta};
     // *** End student code *** //
@@ -40,11 +40,13 @@ int main(){
         std::vector<float> odometry_pose = robot.readOdometry();
         vector<float> driveVec = computeDriveToPoseCommand(goal_pose, odometry_pose);
 
-        robot.drive(driveVec[0], driveVec[1],driveVec[2]);
+        robot.drive(driveVec[0], driveVec[1], driveVec[2]);
 
         // *** End student code *** //
 
-        if (ctrl_c_pressed) break;
+        if (ctrl_c_pressed) {
+            break;
+        } 
     }
 
     // Stop the robot before exiting.

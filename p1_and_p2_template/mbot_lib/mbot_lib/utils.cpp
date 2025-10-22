@@ -29,7 +29,7 @@ std::vector<float> rayConversionVector(float angle)
     return move;
 
     // *** End student code *** //
-}
+} 
 
 int findMinDist(const std::vector<float>& ranges)
 {
