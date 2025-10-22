@@ -5,6 +5,7 @@
  */
 
 #include <mbot_lib/behaviors.h>
+#include <iostream>
 using namespace::std;
 
 std::vector<float> computeWallFollowerCommand(const std::vector<float>& ranges, const std::vector<float>& thetas)
@@ -48,21 +49,11 @@ std::vector<float> computeDriveToPoseCommand(const std::vector<float>& goal, con
     float theta = pose[2];
 
     vector<float> v;
-    v.push_back(dx*2);
-    v.push_back(dy*2);
+    v.push_back(0.5*dx/sqrt(dx*dx + dy*dy));
+    v.push_back(0.5*dy/sqrt(dx*dx + dy*dy));
     v.push_back(dtheta);
     
     transformVector2D(v, theta);
-
-    if (sqrt(pow(dx, 2)+pow(dy, 2)) < 0.1)
-    {
-        v[0]=0;
-        v[1]=0;
-    }
-    else
-    {
-        v[2]=0;
-    }
 
     return v;
 
@@ -74,11 +65,13 @@ bool isGoalAngleObstructed(const std::vector<float>& goal, const std::vector<flo
                            const std::vector<float>& ranges, const std::vector<float>& thetas)
 {
     // *** Task: Implement this function according to the header file *** //
-
-    float target_angle = goal[2]-pose[2];
+    float dx = goal[0]-pose[0];
+    float dy = goal[1]-pose[1];
+    float dtheta = atan(dy/dx);
+    float target_angle = normalizeAngle(dtheta-pose[2]);
     double slice_size = M_PI/2;
 
-    if (ranges[findMinNonzeroDistInSlice(ranges, thetas, target_angle, slice_size)] < 0.4 && target_angle-pose[2] < M_PI/6.0)
+    if (ranges[findMinNonzeroDistInSlice(ranges, thetas, target_angle, slice_size)] < sqrt(pow(dx, 2)+pow(dy, 2)))
     {
         return true;
     }
